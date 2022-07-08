@@ -8,9 +8,6 @@
 // Variable to store if sending data was successful
 String success;
 
-char  dataword;
-
-
 // Structure example to send data
 // Must match the receiver structure
 typedef struct struct_message {
@@ -45,16 +42,10 @@ void OnDataRecv(uint8_t * mac, uint8_t *incomingData, uint8_t len) {
   memcpy(&receivedData, incomingData, sizeof(receivedData));
   Serial.print("Bytes received: ");
   Serial.println(len);
- 
-  dataword = receivedData.datasending[32];
- // Raw_Accel_Vector = receivedData.Raw_Impact_Value;
- // Accel_Vector = receivedData.Impact_Value;
-  
-
-Serial.print("dataword: ");
-  Serial.println(receivedData.datasending);
-  Serial.print("Raw_Accel_Vector: ");
-  Serial.println(receivedData.Raw_Impact_Value);
-  Serial.print("Accel_Vector: ");
-  Serial.println(receivedData.Impact_Value);
+  /*
+  incomingSwitch = receivedData.SwitchClosed;
+  incomingRelay = receivedData.activateRelay;
+  incomingLED = receivedData.LedOn;
+  incomingOpenRelay = receivedData.deactivateRelay;
+*/
 }
